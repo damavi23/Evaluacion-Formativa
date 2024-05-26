@@ -1,0 +1,178 @@
+
+vida = 40
+puntos = 0 
+
+while True:
+    print("***********")
+    print("[1] Comer")
+    print("[2] Jugar")
+    print("[3] Canjear puntos")
+    print("[4] Dormir")
+    print("[5] Salir")
+    print("***********")
+    while True:
+        try:
+            if vida <= 0:
+                print("Tu mascota ha muerto")
+                break
+            opc = int(input("Ingrese una opción: "))
+            if opc == 1:
+                print("***************")
+                print("!!!Selecione alimento!!!")
+                print("[1] Hueso")
+                print("[2] Agua")
+                print("[3] Chocolate")
+                print("[4] Café")
+                print("[5] !!Detergente!!")
+                print("[6] volver atras")
+                while True:
+                    try:
+                        opc = int(input("Seleccione una opción: "))
+                        if opc == 1:
+                            print("Ha ganado 10 Puntos, pero pierde 2 de vida.")
+                            puntos += 20
+                            vida -= 2
+                        elif opc == 2:
+                            print("Ha ganado 5 puntos, pero pierde 1 de vida.")
+                            puntos += 5
+                            vida -= 1
+                        elif opc == 3:
+                            print("Ha ganado 20 puntos, pero pierde 13 de vida")
+                            puntos += 20
+                            vida -= 13
+                        elif opc == 4:
+                            print("Ha ganado 10 puntos, pero pierde 5 de vida")
+                            puntos += 10
+                            vida -= 5
+                        elif opc == 5:
+                            print("NONONONONO.....")
+                            print("Eso no se hace")
+                            print("Pierdes 10 puntos por intento de homicidio")
+                            puntos -= 10
+                        elif opc == 6:
+                            print("***********")
+                            print("[1] Comer")
+                            print("[2] Jugar")
+                            print("[3] Canjear puntos")
+                            print("[4] Dormir")
+                            print("[5] Salir")
+                            print("***********")
+                            break
+                        else:
+                            print("Ingrese una opcion valida")
+                    except:
+                        print("Error formato.")
+            elif opc == 2:
+                print("***************")
+                print("[1] Saltar la cuerda")
+                print("[2] Hablar")
+                print("[3] Moverse")
+                print("[4] Volver atras")
+                while True:
+                    try:
+                        opc = int(input("Seleccione una opción: "))
+                        if opc == 1:
+                            print("Saltando la cuerda")
+                            print("Ha ganado 10 puntos, pero pierde 3 de vida.")
+                            puntos += 10
+                            vida -= 3
+                            print("***************")
+                            print("[1] Saltar la cuerda")
+                            print("[2] Hablar")
+                            print("[3] Moverse")
+                            print("[4] Volver atras")
+                        elif opc == 2: 
+                            print("Hablando")
+                            import pyttsx3
+                            engine = pyttsx3.init()
+                            engine.say("Hola, soy tu mascota virtual")
+                            engine.say("¿Cómo estás?")
+                            engine.say("Por hablar conmigo tienes 3 puntos extra y 4 de vida como regalo")
+                            engine.say("Adioooooooos")
+                            engine.runAndWait()
+                            print("***************")
+                            print("[1] Saltar la cuerda")
+                            print("[2] Hablar")
+                            print("[3] Moverse")
+                            print("[4] Volver atras")
+                        elif opc == 3:
+                            print("Moviendo la cola")
+                            print("Ha ganado 5 puntos, pero pierde 2 de vida.")
+                            print("***************")
+                            print("[1] Saltar la cuerda")
+                            print("[2] Hablar")
+                            print("[3] Moverse")
+                            print("[4] Volver atras")
+                        elif opc == 4:
+                            print("***********")
+                            print("[1] Comer")
+                            print("[2] Jugar")
+                            print("[3] Canjear puntos")
+                            print("[4] Dormir")
+                            print("[5] Salir")
+                            print("***********")
+                            break
+                    except:
+                        print("Error formato.")
+            elif opc == 3:
+                print("***************")
+                print("Tiene", puntos, "puntos, y", vida, "de vida")
+                print("[1] Canjear 10 puntos por 5 de vida")
+                print("[2] Canjear 20 puntos por 10 de vida")
+                print("[3] Canjear 30 puntos por 15 de vida")
+                print("[4] Volver atras")
+                while True:
+                    try:
+                        if puntos <= 0:
+                            print("No tiene puntos")
+                            break
+                        opc = int(input("Seleccione una opción: "))
+                        if opc == 1:
+                            if puntos >= 10:
+                                print("Ha canjeado 10 puntos por 5 de vida")
+                                puntos -= 10
+                                vida += 5
+                                print("Tiene", puntos, "puntos, y", vida, "de vida")
+                            else:
+                                print("No tiene suficientes puntos")
+                        elif opc == 2:
+                            if puntos >= 20:
+                                print("Ha canjeado 20 puntos por 10 de vida")
+                                puntos -= 20
+                                vida += 10
+                                print("Tiene", puntos, "puntos, y", vida, "de vida")
+                            else:
+                                print("No tiene suficientes puntos")
+                        elif opc == 3:
+                            if puntos >= 30:
+                                print("Ha canjeado 30 puntos por 15 de vida")
+                                puntos -= 30
+                                vida += 15
+                                print("Tiene", puntos, "puntos, y", vida, "de vida")
+                            else:
+                                print("No tiene suficientes puntos")
+                        elif opc == 4:
+                            print("***********")
+                            print("[1] Comer")
+                            print("[2] Jugar")
+                            print("[3] Canjear puntos")
+                            print("[4] Dormir")
+                            print("[5] Salir")
+                            print("***********")
+                            break
+                    except:
+                        print("Error formato.")
+            elif opc == 4:
+                print("Durmiendo")
+                print("Ha recuperado 10 de vida, pero pierdes todos los puntos")
+                puntos -= puntos
+                vida += 10
+            elif opc == 5:
+                break
+            else:
+                print("Ingrese una opcion valida")
+        except:
+            print("Error formato.")
+    break
+
+    
